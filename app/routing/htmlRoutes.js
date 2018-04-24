@@ -8,9 +8,8 @@ app.get('/make', function(req, res){
     res.sendFile(path.join(__dirname, 'make.html'))
 });
 
-
-// routes
-// app.get('/', function(req, res){
-//     res.sendFile(path.join(__dirname, 'home.html'))
-// });
+routes
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname, 'home.html'))
+});
 
