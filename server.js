@@ -17,16 +17,21 @@ app.listen(PORT, function(){
 // Arrays to hold data
 var reservations = [];
 var waitList = [];
+var tables = [];
 
 // routes
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, 'home.html'))
-});
-
 app.get('api/tables', function(req, res){
     return res.json(reservations)
 });
 
 app.get('api/waitlist', function(req, res){
     return res.json(reservations)
+});
+
+app.post('/api/tables', function(req, res){
+    var newReservation = req.body;
+    newReservation.routeName = newReservation.reserve_uniqueID;
+    console.log(newReservation);
+    tables.push(newReservation);
+    ref.json(newReservation)
 });
